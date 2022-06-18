@@ -48,15 +48,18 @@ namespace Game.Runtime
 
             var player = LeanPool.Spawn(goWoodCutter, Vector3.zero, goWoodCutter.transform.rotation);
             _woodCutter = player.GetComponent<PlayerActionMng>();
+            this._woodCutter.coolDownSkill = UIManager.instant.SetPlayerSkillCoolDown;
             cameraController.RegisterFollow(player);
             activePlayer = this._woodCutter;
 
             var player2 = LeanPool.Spawn(goGraveRobber, Vector3.zero, goGraveRobber.transform.rotation);
             _graveRobber = player2.GetComponent<PlayerActionMng>();
+            this._graveRobber.coolDownSkill = UIManager.instant.SetPlayerSkillCoolDown;
 
 
             var player3 = LeanPool.Spawn(goSteamMan, Vector3.zero, goSteamMan.transform.rotation);
             _steamMan = player3.GetComponent<PlayerActionMng>();
+            this._steamMan.coolDownSkill = UIManager.instant.SetPlayerSkillCoolDown;
 
             characters.Add(_woodCutter);
             characters.Add(_graveRobber);

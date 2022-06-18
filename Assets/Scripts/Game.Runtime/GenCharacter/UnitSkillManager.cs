@@ -17,6 +17,14 @@ namespace Game.Runtime
 
         protected List<UnitBaseSkill> _unitBaseSkills = new List<UnitBaseSkill>();
         private UnitSkillData[] _skillDatas;
+
+        public UnitSkillData[] SkillData
+        {
+            get
+            {
+                return this._skillDatas;
+            }
+        }
         
         private void Start()
         {

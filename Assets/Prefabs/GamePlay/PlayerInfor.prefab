@@ -1216,6 +1216,10 @@ MonoBehaviour:
   - {fileID: 3500352425780248198}
   - {fileID: 3677635180487937078}
   - {fileID: 6821446252274786757}
+  imgCooldown:
+  - {fileID: 1652594226133830304}
+  - {fileID: 1985866278432765301}
+  - {fileID: 7205988206802170208}
 --- !u!1 &8720838498925128573
 GameObject:
   m_ObjectHideFlags: 0

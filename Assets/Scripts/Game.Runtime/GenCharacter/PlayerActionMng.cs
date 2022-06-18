@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -11,6 +12,10 @@ namespace Game.Runtime
         private Jump _jump;
         private CharacterData _characterData;
 
+        // index player/ index skill/ time cooldown/ callback
+        public Action<int,int, float, Action> coolDownSkill;
+        private bool isSkill2Ready = true;
+        private bool isSkill3Ready = true;
         public CharacterData CharacterData
         {
             get => this._characterData;
@@ -76,15 +81,23 @@ namespace Game.Runtime
                 this._unitAnimationMng.onAttackSkill1 = OnExcuteSkill1;
                 this._unitAnimationMng.PlaySkill1();
             }
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.K) && this.isSkill2Ready && gameObject.activeSelf)
             {
                 this._unitAnimationMng.onAttackSkill2 = OnExcuteSkill2;
                 this._unitAnimationMng.PlaySkill2();
+                this.isSkill2Ready = false;
+                this.coolDownSkill?.Invoke(this.unitData.id,0,this._unitSkillManager.SkillData[1].cooldown, () => {
+                    this.isSkill2Ready = true;
+                });
             }
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.L) && this.isSkill3Ready && gameObject.activeSelf)
             {
                 this._unitAnimationMng.onAttackSkill3 = OnExcuteSkill3;
                 this._unitAnimationMng.PlaySkill3();
+                this.isSkill3Ready = false;
+                this.coolDownSkill?.Invoke(this.unitData.id,1,this._unitSkillManager.SkillData[2].cooldown, () => {
+                    this.isSkill3Ready = true;
+                });
             }
 
             if (!IsOnGround)
@@ -111,7 +124,8 @@ namespace Game.Runtime
             
             
         }
-
+        
+        // skill 1==attack
         void OnExcuteSkill1()
         {
             var coll = this._attackBoxCollider.GetTarget();

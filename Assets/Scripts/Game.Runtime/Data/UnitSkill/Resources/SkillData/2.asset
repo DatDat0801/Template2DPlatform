@@ -15,7 +15,7 @@ MonoBehaviour:
   idSkill: 2
   name: Lightning Flash
   unitSkill: 2
-  value: 12
+  value: 40
   cooldown: 2
   quantity: 4
   spaceX: 2.5

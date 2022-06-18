@@ -104,7 +104,7 @@ namespace Game.Runtime
         private bool isAttack;
         async UniTaskVoid Attack()
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
+            await UniTask.Delay(TimeSpan.FromSeconds(this._enemyData.cooldownAttack));
             this._unitAnimationMng.onAttackSkill2 = OnExcuteSkill1;
             this._unitAnimationMng.PlaySkill2();
             this.isAttack = true;

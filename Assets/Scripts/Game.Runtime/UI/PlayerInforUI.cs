@@ -40,8 +40,9 @@ namespace Game.Runtime
             btn.interactable = interactable;
         }
 
-        public async UniTaskVoid SetCooldown(int skillIndex, float timeCooldown,Action onFinish=null)
+        public void SetCooldown(int skillIndex, float timeCooldown,Action onFinish=null)
         {
+            // dung unitask nhung chua thanh cong
             // imgCooldown[skillIndex].fillAmount = 1;
             // var tmp = timeCooldown;
             // while (tmp>=0)
@@ -52,7 +53,7 @@ namespace Game.Runtime
             //     imgCooldown[skillIndex].fillAmount = percent;
             //     UniTask.Delay(TimeSpan.FromSeconds(10f));
             // }
-            StartCoroutine(SetCooldown2(skillIndex, timeCooldown));
+            StartCoroutine(SetCooldown2(skillIndex, timeCooldown,onFinish));
         }
 
         IEnumerator SetCooldown2(int skillIndex, float timeCooldown,Action onFinish=null)

@@ -21,3 +21,4 @@ MonoBehaviour:
   unitStatus: 000000000100000002000000
   typeEnemy: 0
   distanceStopBeforePlayer: 2
+  cooldownAttack: 1

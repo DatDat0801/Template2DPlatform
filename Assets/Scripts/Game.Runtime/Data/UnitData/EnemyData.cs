@@ -10,5 +10,6 @@ namespace Game.Runtime
         [Header("Enemy Data")]
         public TypeEnemy typeEnemy;
         public float distanceStopBeforePlayer;
+        public float cooldownAttack;
     }
 }
