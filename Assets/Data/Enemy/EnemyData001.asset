@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6e1d57c32db9549abbd886fac415b7, type: 3}
-  m_Name: CharacterData001
+  m_Script: {fileID: 11500000, guid: c6ddff9382bf7604a89973e0903c52a9, type: 3}
+  m_Name: EnemyData001
   m_EditorClassIdentifier: 
   id: 1
   unitStat:
-    name: Grave Robber
-    hp: 350
-    atk: 50
-  runSpeed: 900
-  unitStatus: 00000000010000000200000003000000
-  typeCharacter: 1
-  jumpForce: 10
+    name: Centipede
+    hp: 150
+    atk: 120
+  runSpeed: 200
+  unitStatus: 000000000100000002000000
+  typeEnemy: 1
+  distanceStopBeforePlayer: 2.5
+  cooldownAttack: 1

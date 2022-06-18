@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   unitStat:
     name: Wood Cutter
-    hp: 10
+    hp: 300
     atk: 50
   runSpeed: 900
   unitStatus: 00000000010000000200000003000000

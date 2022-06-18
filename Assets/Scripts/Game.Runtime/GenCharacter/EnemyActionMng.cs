@@ -75,7 +75,7 @@ namespace Game.Runtime
         private bool usedToMoveToPlayer = false;
         protected virtual void FindPlayer()
         {
-            if(this._unitStatus== UnitStatus.Death || this._unitAnimationMng.IsInHurt) return;
+            if(this._unitStatus== UnitStatus.Death ) return; //|| this._unitAnimationMng.IsInHurt
             if (Mathf.Abs(GameManager.instant.ActivePlayer.transform.position.x - transform.position.x)>this._enemyData.distanceStopBeforePlayer)
             {
                 if (IsPlayerInTheLeft)

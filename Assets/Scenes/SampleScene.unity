@@ -242,9 +242,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 20917723}
+  - {fileID: 1638414660}
   - {fileID: 805506165}
   - {fileID: 2121831049}
-  - {fileID: 1638414660}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1855,7 +1855,7 @@ RectTransform:
   - {fileID: 978936998}
   - {fileID: 673079181}
   m_Father: {fileID: 441919}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2811,7 +2811,10 @@ MonoBehaviour:
   headStorm: {fileID: 7968167301544163627, guid: 8f2665182324b084ca8eb8b6d828fbbc, type: 3}
   lightningFlash: {fileID: 9093658729343618233, guid: 20789e9da21d6614b99df8a7fbcf2463, type: 3}
   goChainLightning: {fileID: 5018859343037666475, guid: 7c7f35b7284b2a74aadea15335c79b91, type: 3}
-  goCentipede: {fileID: 2126135610470341351, guid: c7683039a05304f4bb1033b2c7e9fcec, type: 3}
+  goEnemies:
+  - {fileID: 2126135610470341351, guid: c7683039a05304f4bb1033b2c7e9fcec, type: 3}
+  - {fileID: 1174369208230553293, guid: 981bd9d59866945458663f4149c363e9, type: 3}
+  - {fileID: 6162828389352177794, guid: 7993ba08bf70d214fb095aa5648a8863, type: 3}
   hpItem: {fileID: 6403625279363035400, guid: 51ecb8fad482ad54fa2ed37e83d5abc1, type: 3}
 --- !u!4 &1257180495
 Transform:
@@ -3326,7 +3329,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 441919}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3996,7 +3999,7 @@ RectTransform:
   - {fileID: 1333475078}
   - {fileID: 1929087063}
   m_Father: {fileID: 441919}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

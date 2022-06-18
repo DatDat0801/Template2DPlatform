@@ -13,6 +13,7 @@ namespace Game.Runtime
         public static GameManager instant;
         public CameraController cameraController;
         private List<IUpdate> _listUpdate = new List<IUpdate>();
+        private bool isEndGame;
 
         public Collider2D groundColl;
 
@@ -26,7 +27,7 @@ namespace Game.Runtime
         [Header("Test Enemy")] public GameObject headStorm;
         public GameObject lightningFlash;
         public GameObject goChainLightning;
-        public GameObject goCentipede;
+        public List<GameObject> goEnemies;
 
         [Header("Test Item")] public GameObject hpItem;
 
@@ -125,18 +126,22 @@ namespace Game.Runtime
 
         async UniTaskVoid SpawnEnemy(float delay)
         {
-            while (_woodCutter.UnitStatus != UnitStatus.Death)
+            while (this.isEndGame == false)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(delay));
-                int ran = Random.Range(1, 3);
-                if (ran == 1)
+                int ran = Random.Range(0, 3);
+                Vector2 pos;
+                int ranPos = Random.Range(0, 2);
+                if (ranPos == 0)
                 {
-                    LeanPool.Spawn(goCentipede, this.leftPoint.position, goCentipede.transform.rotation);
+                    pos = this.leftPoint.position;
                 }
                 else
                 {
-                    LeanPool.Spawn(goCentipede, this.rightPoint.position, goCentipede.transform.rotation);
+                    pos = this.rightPoint.position;
                 }
+
+                LeanPool.Spawn(goEnemies[ran], pos, goEnemies[ran].transform.rotation);
             }
         }
 
@@ -153,8 +158,8 @@ namespace Game.Runtime
 
         public void InsHPItem(Vector2 pos)
         {
-            var obj = LeanPool.Spawn(this.hpItem, new Vector2(pos.x,pos.y+1f), this.hpItem.transform.rotation);
-            obj.GetComponent<Rigidbody2D>().velocity = Vector2.up*15f;
+            var obj = LeanPool.Spawn(this.hpItem, new Vector2(pos.x, pos.y + 1f), this.hpItem.transform.rotation);
+            obj.GetComponent<Rigidbody2D>().velocity = Vector2.up * 15f;
         }
 
         public void SetTimeScale(int scale)
@@ -162,12 +167,14 @@ namespace Game.Runtime
             Time.timeScale = scale;
         }
 
+
         void OnPlayerDeathUpdate()
         {
             this._countDeath += 1;
             if (this._countDeath >= 3)
             {
                 UIManager.instant.ShowEndGame();
+                this.isEndGame = true;
             }
         }
     }

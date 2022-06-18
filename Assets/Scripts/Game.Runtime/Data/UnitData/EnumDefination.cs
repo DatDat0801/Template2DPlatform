@@ -22,7 +22,8 @@ namespace Game.Runtime
     public enum TypeEnemy
     {
         Centipede=0,
-
+        BattleTurtle=1,
+        BigBloadted=2
     }
     
 
