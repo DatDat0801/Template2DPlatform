@@ -42,6 +42,7 @@ namespace Game.Runtime
         private void Start()
         {
             Init();
+            if (this.animator == null) this.animator = GetComponent<Animator>();
         }
 
         protected virtual void Init(AnimationDefination animationDefination = null)
@@ -52,7 +53,7 @@ namespace Game.Runtime
 
         void SetCurrentStatus(string status)
         {
-            this.animator.SetBool(_currentStatus, false);
+            this.animator?.SetBool(_currentStatus, false);
             _currentStatus = status;
         }
 

@@ -37,6 +37,7 @@ namespace Game.Runtime
         private List<PlayerActionMng> characters = new List<PlayerActionMng>();
         private int currentChar = 0;
         private PlayerActionMng activePlayer;
+        private int _countDeath;
 
         public PlayerActionMng ActivePlayer
         {
@@ -51,17 +52,20 @@ namespace Game.Runtime
             var player = LeanPool.Spawn(goWoodCutter, Vector3.zero, goWoodCutter.transform.rotation);
             _woodCutter = player.GetComponent<PlayerActionMng>();
             this._woodCutter.coolDownSkill = UIManager.instant.SetPlayerSkillCoolDown;
+            this._woodCutter.onDeathUIUpdate = OnPlayerDeathUpdate;
             cameraController.RegisterFollow(player);
             activePlayer = this._woodCutter;
 
             var player2 = LeanPool.Spawn(goGraveRobber, Vector3.zero, goGraveRobber.transform.rotation);
             _graveRobber = player2.GetComponent<PlayerActionMng>();
             this._graveRobber.coolDownSkill = UIManager.instant.SetPlayerSkillCoolDown;
+            this._graveRobber.onDeathUIUpdate = OnPlayerDeathUpdate;
 
 
             var player3 = LeanPool.Spawn(goSteamMan, Vector3.zero, goSteamMan.transform.rotation);
             _steamMan = player3.GetComponent<PlayerActionMng>();
             this._steamMan.coolDownSkill = UIManager.instant.SetPlayerSkillCoolDown;
+            this._steamMan.onDeathUIUpdate = OnPlayerDeathUpdate;
 
             characters.Add(_woodCutter);
             characters.Add(_graveRobber);
@@ -156,6 +160,15 @@ namespace Game.Runtime
         public void SetTimeScale(int scale)
         {
             Time.timeScale = scale;
+        }
+
+        void OnPlayerDeathUpdate()
+        {
+            this._countDeath += 1;
+            if (this._countDeath >= 3)
+            {
+                UIManager.instant.ShowEndGame();
+            }
         }
     }
 }

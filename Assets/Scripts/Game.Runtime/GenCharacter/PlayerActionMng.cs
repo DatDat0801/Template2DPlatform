@@ -16,6 +16,9 @@ namespace Game.Runtime
         public Action<int,int, float, Action> coolDownSkill;
         private bool isSkill2Ready = true;
         private bool isSkill3Ready = true;
+        
+        // Death Update
+        public Action onDeathUIUpdate;
         public CharacterData CharacterData
         {
             get => this._characterData;
@@ -161,5 +164,10 @@ namespace Game.Runtime
             _unitSkillManager.DoSkill(2,this,transform,tmp);
         }
 
+        protected override void SetDeath()
+        {
+            base.SetDeath();
+            onDeathUIUpdate?.Invoke();
+        }
     }
 }

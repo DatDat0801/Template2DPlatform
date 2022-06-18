@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f6e1d57c32db9549abbd886fac415b7, type: 3}
-  m_Name: CharacterData000
+  m_Name: CharacterData001
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   unitStat:
-    name: Wood Cutter
-    hp: 300
+    name: Grave Robber
+    hp: 10
     atk: 50
   runSpeed: 900
   unitStatus: 00000000010000000200000003000000
-  typeCharacter: 0
+  typeCharacter: 1
   jumpForce: 10
