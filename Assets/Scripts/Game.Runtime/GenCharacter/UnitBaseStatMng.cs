@@ -28,7 +28,7 @@ namespace Game.Runtime
             return this._currentUnitBaseStat.hp;
         }
         
-        public void AddHealth(float add)
+        public float AddHealth(float add)
         {
             this._currentUnitBaseStat.hp += add;
             if (this._currentUnitBaseStat.hp > this._startUnitBaseStat.hp)
@@ -36,6 +36,7 @@ namespace Game.Runtime
                 this._currentUnitBaseStat.hp = this._startUnitBaseStat.hp;
             }
             this._healthBarMng.UpdateHealthBar(GetHPRatio);
+            return this._currentUnitBaseStat.hp;
         }
 
         float GetHPRatio

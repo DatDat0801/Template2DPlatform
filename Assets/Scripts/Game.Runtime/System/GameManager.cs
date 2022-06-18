@@ -28,6 +28,8 @@ namespace Game.Runtime
         public GameObject goChainLightning;
         public GameObject goCentipede;
 
+        [Header("Test Item")] public GameObject hpItem;
+
         private PlayerActionMng _woodCutter;
         private PlayerActionMng _graveRobber;
         private PlayerActionMng _steamMan;
@@ -64,6 +66,7 @@ namespace Game.Runtime
             characters.Add(_woodCutter);
             characters.Add(_graveRobber);
             characters.Add(_steamMan);
+            SetTimeScale(0);
         }
 
         private void Start()
@@ -142,6 +145,17 @@ namespace Game.Runtime
             currentChar = id;
             this.cameraController.RegisterFollow(this.characters[id].gameObject);
             activePlayer = this.characters[id];
+        }
+
+        public void InsHPItem(Vector2 pos)
+        {
+            var obj = LeanPool.Spawn(this.hpItem, new Vector2(pos.x,pos.y+1f), this.hpItem.transform.rotation);
+            obj.GetComponent<Rigidbody2D>().velocity = Vector2.up*15f;
+        }
+
+        public void SetTimeScale(int scale)
+        {
+            Time.timeScale = scale;
         }
     }
 }

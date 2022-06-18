@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game.Runtime
 {
@@ -51,6 +52,11 @@ namespace Game.Runtime
         {
             base.SetDeath();
             DeathEffect();
+            int ran = Random.Range(0, 100);
+            if (ran <= 50)
+            {
+                GameManager.instant.InsHPItem(transform.position);
+            }
         }
 
         async UniTaskVoid DeathEffect()

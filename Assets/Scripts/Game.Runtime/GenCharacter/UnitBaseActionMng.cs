@@ -185,6 +185,13 @@ namespace Game.Runtime
             }
             return false;
         }
+        
+        public virtual void AddHealth(float addHP)
+        {
+            if (this._unitStatus == UnitStatus.Death) return;
+            var hp = _unitBaseStatMng.AddHealth(addHP);
+            onUpdateHP?.Invoke(this.unitData.id,hp);
+        }
 
         protected virtual void SetDeath()
         {
