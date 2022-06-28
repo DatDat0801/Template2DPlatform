@@ -1,0 +1,11 @@
+{
+    "name": "com.drimdar.pack",
+    "displayName": "Drimdar",
+    "version": "1.0.0",
+    "unity": "2018.4",
+    "description": "Provides an efficient async/await integration to Unity.",
+    "keywords": [ "async/await", "async", "Task", "Drimdar" ],
+    "license": "MIT",
+    "category": "Task",
+    "dependencies": {}
+}
